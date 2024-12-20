@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimFlix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #141414;
+    color: white;
+    overflow-y: auto; /* Erlaubt vertikales Scrollen */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #141414;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 32px;
+    color: red;
+    margin: 0;
+    cursor: pointer;
+}
+
+.container {
+    padding: 120px 20px 20px; /* Puffer für den fixierten Header */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.item {
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.item:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.item p {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    animation: popupSlideIn 0.3s ease-out;
+}
+
+.popup.active {
+    display: block;
+}
+
+.popup h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #e50914;
+}
+
+/* Episode List */
+.episode-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.episode-item {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.episode-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.episode-item img {
+    width: 100%;
+    border-radius: 8px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.episode-item p {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Animations */
+@keyframes popupSlideIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+    </style>
+    <script>
+        function showPopup(seriesId) {
+            // Close any other active popups first
+            const popups = document.querySelectorAll('.popup');
+            popups.forEach(popup => popup.classList.remove('active'));
+            
+            // Show the clicked popup
+            document.getElementById(seriesId).classList.add('active');
+            document.querySelector('.overlay').classList.add('active');
+        }
+
+        function closePopup() {
+            const popups = document.querySelectorAll('.popup');
+            popups.forEach(popup => popup.classList.remove('active'));
+            document.querySelector('.overlay').classList.remove('active');
+        }
+    </script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>SimFlix</h1>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <h2>Trending Series</h2>
+    <div class="grid">
+        <!-- The Rookie - Staffel 6 -->
+        <div class="item" onclick="showPopup('rookie-s6');">
+            <img src="https://megakino.plus/uploads/posts/2024-05/wbeqbufydzthdq4h7dzqnknh5he.webp" alt="The Rookie - Staffel 6">
+            <p>The Rookie - Staffel 6</p>
+        </div>
+
+        <!-- The Rookie - Staffel 1 -->
+        <div class="item" onclick="showPopup('rookie-s1');">
+            <img src="https://megakino.plus/uploads/posts/2022-12/b4149d9e52_jpg.webp" alt="The Rookie - Staffel 1">
+            <p>The Rookie - Staffel 1</p>
+        </div>
+
+        <!-- The Rookie - Staffel 2 -->
+        <div class="item" onclick="showPopup('rookie-s2');">
+            <img src="https://megakino.plus/uploads/posts/2024-05/3jjxoamdlfxuf8raqjmhm3sw3nb.webp" alt="The Rookie - Staffel 2">
+            <p>The Rookie - Staffel 2</p>
+        </div>
+    </div>
+
+    <!--  Category: Movies -->
+    <h2>Movies</h2>
+    <div class="grid">
+        <!-- Kevin allein zu Hause -->
+        <div class="item" onclick="window.location.href='https://sandratableother.com/e/ov7t9fgkev2p';">
+            <img src="https://megakino.plus/uploads/posts/2022-05/1ebf2a2932c4d379de158f3e47b99fb91.jpg" alt="Kevin allein zu Hause">
+            <p>Kevin allein zu Hause</p>
+        </div>
+        <!-- Kevin - Allein in New York -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/ve26rlooba6v';">
+            <img src="https://megakino.plus/uploads/posts/2022-05/kevinny1.jpg" alt="Kevin - Allein in New York">
+            <p>Kevin - Allein in New York</p>
+        </div>
+        <!-- Der Super Mario Bros. Film -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/mp58kqh1ppoo';">
+            <img src="https://megakino.plus/uploads/posts/2023-04/3504099_jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg" alt="Der Super Mario Bros. Film">
+            <p>Der Super Mario Bros. Film</p>
+        </div>
+        <!-- Ich - Einfach unverbesserlich 4 -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/0r27ephvatq4';">
+            <img src="https://megakino.plus/uploads/posts/2024-06/6194ae431afa8bf3063ee0d1e984f034.webp" alt="Ich - Einfach unverbesserlich 4">
+            <p>Ich - Einfach unverbesserlich 4</p>
+        </div>
+        <!-- Vaiana 2 -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/fsslec4qdjdp';">
+            <img src="https://megakino.plus/uploads/posts/2024-11/ff5ff847768009ed158f126a11d93591.jpg" alt="Vaiana 2">
+            <p>Vaiana 2</p>
+        </div>
+        <!-- Die Drei ??? - Erbe des Drachen -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/8ggmw7qiu6mg';">
+            <img src="https://megakino.plus/uploads/posts/2023-06/2415142.webp" alt="Die Drei ??? - Erbe des Drachen">
+            <p>Die Drei ??? - Erbe des Drachen</p>
+        </div>
+                <!-- Titanic -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/3w3ekhyt9ze3';">
+            <img src="https://megakino.plus/uploads/posts/2022-04/597_posters_165005390gujdy.jpg" alt="Titanic">
+            <p>Titanic</p>
+        </div>
+        <!-- Die Schule der magischen Tiere 3 -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/bhd0cvxf3o8c';">
+            <img src="https://megakino.plus/uploads/posts/2024-10/7e95ea4b259af383a2b3adea1ce36afe_jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg" alt="Die Schule der magischen Tiere 3">
+            <p>Die Schule der magischen Tiere 3</p>
+        </div>
+        <!-- Die Schule der magischen Tiere 2 -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/sfysm8p9pc1j';">
+            <img src="https://megakino.plus/uploads/posts/2023-03/1420399_jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg" alt="Die Schule der magischen Tiere 2">
+            <p>Die Schule der magischen Tiere 2</p>
+        </div>
+        <!-- Die Schule der Magischen Tiere -->
+        <div class="item" onclick="window.location.href='https://voe.sx/e/qtl5zimahpcs';">
+            <img src="https://megakino.plus/uploads/posts/2022-03/793937_poster_1648051bvj2x1.jpg" alt="Die Schule der magischen Tiere">
+            <p>Die Schule der magischen Tiere</p>
+        </div>
+    </div>
+</div>
+
+    <!-- Overlay and Popup -->
+    <div class="overlay" onclick="closePopup()"></div>
+
+    <!-- Popup for "The Rookie - Staffel 6" -->
+    <div id="rookie-s6" class="popup">
+        <h3>The Rookie - Staffel 6 Episoden</h3>
+        <div class="episode-list">
+                     <!-- Episode 1 -->
+                     <div class="episode-item" onclick="window.open('https://sandratableother.com/e/soc71j4qin3f')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+1" alt="Episode 1">
+                        <p>Episode 1: First Steps</p>
+                    </div>
+                    
+                    <!-- Episode 2 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/zwyad5dytedy')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+2" alt="Episode 2">
+                        <p>Episode 2: New Beginnings</p>
+                    </div>
+                    
+                    <!-- Episode 3 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/xl3o2u4vtt6r')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+3" alt="Episode 3">
+                        <p>Episode 3: The Call</p>
+                    </div>
+                    
+                    <!-- Episode 4 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/lcp7nnkmk0fm')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+4" alt="Episode 4">
+                        <p>Episode 4: Unexpected</p>
+                    </div>
+                    
+                    <!-- Episode 5 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/obtcakc8mgue')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+5" alt="Episode 5">
+                        <p>Episode 5: Under Pressure</p>
+                    </div>
+                    
+                    <!-- Episode 6 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/1gpkguxvcg8c')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+6" alt="Episode 6">
+                        <p>Episode 6: Tension Rising</p>
+                    </div>
+                    
+                    <!-- Episode 7 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/104bgxhihmiv')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+7" alt="Episode 7">
+                        <p>Episode 7: The Choice</p>
+                    </div>
+                    
+                    <!-- Episode 8 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/tgdsvkhraczw')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+8" alt="Episode 8">
+                        <p>Episode 8: The Unexpected</p>
+                    </div>
+                    
+                    <!-- Episode 9 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/n8bi6kgnmexr')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+9" alt="Episode 9">
+                        <p>Episode 9: A Turning Point</p>
+                    </div>
+                    
+                    <!-- Episode 10 -->
+                    <div class="episode-item" onclick="window.open('https://sandratableother.com/e/ecckf5xbl6zu')">
+                        <img src="https://via.placeholder.com/200x120?text=Episode+10" alt="Episode 10">
+                        <p>Episode 10: The Finale</p>
+                    </div>
+        </div>
+    </div>
+
+<!-- Popup for "The Rookie - Staffel 2" -->
+<div id="rookie-s2" class="popup">
+    <h3>The Rookie - Staffel 2 Episoden</h3>
+    <div class="episode-list">
+        <!-- Episode 1 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/vvei2awip01h')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+1" alt="Episode 1">
+            <p>Episode 1: Rückkehr in den Dienst</p>
+        </div>
+
+        <!-- Episode 2 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/rgjax7x2nbcm')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+2" alt="Episode 2">
+            <p>Episode 2: Neue Partnerschaften</p>
+        </div>
+
+        <!-- Episode 3 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/iyg4nq0x6k43')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+3" alt="Episode 3">
+            <p>Episode 3: Gefahr im Verzug</p>
+        </div>
+
+        <!-- Episode 4 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/qvwrir8eezig')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+4" alt="Episode 4">
+            <p>Episode 4: Unerwartete Wendung</p>
+        </div>
+
+        <!-- Episode 5 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/qaq0kmmmjs48')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+5" alt="Episode 5">
+            <p>Episode 5: Unter Druck</p>
+        </div>
+
+        <!-- Episode 6 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/qylgrylxacha')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+6" alt="Episode 6">
+            <p>Episode 6: Die Eskalation</p>
+        </div>
+
+        <!-- Episode 7 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/mcmqrjq3lkgv')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+7" alt="Episode 7">
+            <p>Episode 7: Die Entscheidung</p>
+        </div>
+
+        <!-- Episode 8 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/aodttmiwjo09')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+8" alt="Episode 8">
+            <p>Episode 8: Im Kreuzfeuer</p>
+        </div>
+
+        <!-- Episode 9 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/thiebwplxoim')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+9" alt="Episode 9">
+            <p>Episode 9: Wendepunkt</p>
+        </div>
+
+        <!-- Episode 10 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/evppyxa0xjlg')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+10" alt="Episode 10">
+            <p>Episode 10: Showdown</p>
+        </div>
+
+        <!-- Episode 11 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/zdgoqdtovjeg')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+11" alt="Episode 11">
+            <p>Episode 11: Neue Erkenntnisse</p>
+        </div>
+
+        <!-- Episode 12 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/aqm109hyhsze')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+12" alt="Episode 12">
+            <p>Episode 12: Die Konfrontation</p>
+        </div>
+
+        <!-- Episode 13 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/junysvahwkzp')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+13" alt="Episode 13">
+            <p>Episode 13: Verlorene Zeit</p>
+        </div>
+
+        <!-- Episode 14 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/wimfnqzzmbrz')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+14" alt="Episode 14">
+            <p>Episode 14: Die Jagd</p>
+        </div>
+
+        <!-- Episode 15 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/yzkvocrf7uwd')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+15" alt="Episode 15">
+            <p>Episode 15: Risiko</p>
+        </div>
+
+        <!-- Episode 16 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/a8avtsbrwens')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+16" alt="Episode 16">
+            <p>Episode 16: Das Geständnis</p>
+        </div>
+
+        <!-- Episode 17 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/i4awid9jb8yf')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+17" alt="Episode 17">
+            <p>Episode 17: Unvorhergesehen</p>
+        </div>
+
+        <!-- Episode 18 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/ykkifpwr5h6r')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+18" alt="Episode 18">
+            <p>Episode 18: Schatten der Vergangenheit</p>
+        </div>
+
+        <!-- Episode 19 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/3ssy4c2ghepb')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+19" alt="Episode 19">
+            <p>Episode 19: In der Falle</p>
+        </div>
+
+        <!-- Episode 20 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/3bv1s9gbxvv1')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+20" alt="Episode 20">
+            <p>Episode 20: Der letzte Einsatz</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Popup for "The Rookie - Staffel 1" -->
+<div id="rookie-s1" class="popup">
+    <h3>The Rookie - Staffel 1 Episoden</h3>
+    <div class="episode-list">
+        <!-- Episode 1 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/pzzxvzvpolut')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+1" alt="Episode 1">
+            <p>Episode 1: Pilot</p>
+        </div>
+        <!-- Episode 2 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/vxankahntost')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+2" alt="Episode 2">
+            <p>Episode 2: Crash Course</p>
+        </div>
+        <!-- Episode 3 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/ahrm7dzcsag6')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+3" alt="Episode 3">
+            <p>Episode 3: The Good, The Bad and The Ugly</p>
+        </div>
+        <!-- Episode 4 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/ulfhexdfnco3')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+4" alt="Episode 4">
+            <p>Episode 4: The Switch</p>
+        </div>
+        <!-- Episode 5 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/ls96mqkf9ogh')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+5" alt="Episode 5">
+            <p>Episode 5: The Roundup</p>
+        </div>
+        <!-- Episode 6 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/rmzff1y5ttgx')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+6" alt="Episode 6">
+            <p>Episode 6: The Hawke</p>
+        </div>   
+        <!-- Episode 7 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/fnoaluxhl6yt')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+7" alt="Episode 7">
+            <p>Episode 7: The Fall</p>
+        </div>                                            
+        <!-- Episode 8 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/tdjrz0iwfwmb')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+8" alt="Episode 8">
+            <p>Episode 8: Time of Death</p>
+        </div>
+        <!-- Episode 9 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/le2qhmyqahy7')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+9" alt="Episode 9">
+            <p>Episode 9: Standoff</p>
+        </div>
+        <!-- Episode 10 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/nuff8vhryz0r')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+10" alt="Episode 10">
+            <p>Episode 10: A.C.H.</p>
+        </div>
+        <!-- Episode 11 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/leu3rpg1uc57')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+11" alt="Episode 11">
+            <p>Episode 11: Invincible</p>
+        </div>    
+        <!-- Episode 12 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/ae48pktlugav')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+12" alt="Episode 12">
+            <p>Episode 12: The Return</p>
+        </div>     
+        <!-- Episode 13 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/jyczt90yunve')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+13" alt="Episode 13">
+            <p>Episode 13: The Rookie</p>
+        </div>    
+        <!-- Episode 14 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/y2ddwj24zt3d')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+14" alt="Episode 14">
+            <p>Episode 14: For Life</p>
+        </div>
+        <!-- Episode 15 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/qzphkgwhigxq')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+15" alt="Episode 15">
+            <p>Episode 15: Manhunt</p>
+        </div>
+        <!-- Episode 16 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/gzvpgseqf3w1')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+16" alt="Episode 16">
+            <p>Episode 16: The Shake Up</p>
+        </div>
+        <!-- Episode 17 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/vhzugqcojhat')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+17" alt="Episode 17">
+            <p>Episode 17: Real Life</p>
+        </div>
+        <!-- Episode 18 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/siddujbvt4ty')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+18" alt="Episode 18">
+            <p>Episode 18: Under Pressure</p>
+        </div>
+        <!-- Episode 19 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/rvrkok8waxuq')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+19" alt="Episode 19">
+            <p>Episode 19: The End Game</p>
+        </div>
+        <!-- Episode 20 -->
+        <div class="episode-item" onclick="window.open('https://voe.sx/e/u9dteobhziap')">
+            <img src="https://via.placeholder.com/200x120?text=Episode+20" alt="Episode 20">
+            <p>Episode 20: Free Fall</p>
+        </div>    
+    </div>
+</div>
+
+</body>
+</html>
