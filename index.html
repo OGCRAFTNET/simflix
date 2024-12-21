@@ -51,17 +51,9 @@
             color: #ff4747;
             margin-top: 10px;
         }
-        #extensionWarning {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid #ff4747;
-            padding: 15px;
-            border-radius: 8px;
+        .warning {
+            color: yellow;
             margin-top: 20px;
-        }
-        .extensionLinks a {
-            color: #ff4747;
-            text-decoration: none;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -74,38 +66,27 @@
             <button type="submit">Einloggen</button>
             <p id="errorMessage" class="error" style="display: none;">Falsches Passwort. Bitte erneut versuchen.</p>
         </form>
-
-        <div id="extensionWarning" style="display: none;">
-            <p>Für eine optimale Nutzung sollten Sie die Popup-Blocker-Erweiterung installieren. Wählen Sie eine der folgenden Optionen:</p>
-            <div class="extensionLinks">
-                <p>Firefox: <a href="https://addons.mozilla.org/de/firefox/addon/popup-blocker-ultimate/" target="_blank">Popup Blocker für Firefox</a></p>
-                <p>Edge: <a href="https://microsoftedge.microsoft.com/addons/detail/popup-blocker-for-browser/fhnijjnklcofjoilpdahmhdoobjemdka" target="_blank">Popup Blocker für Edge</a></p>
-                <p>Chrome: <a href="https://chromewebstore.google.com/detail/pop-up-blocker-f%C3%BCr-chrome/bkkbcggnhapdmkeljlodobbkopceiche?hl=de&pli=1" target="_blank">Popup Blocker für Chrome</a></p>
-            </div>
-        </div>
+        <p id="warningMessage" class="warning" style="display: none;">
+            Sie müssen einen Popup-Blocker installieren, um diese Website zu nutzen.
+        </p>
     </div>
 
     <script>
-        // Funktion, die prüft, ob Popups aktiviert sind, als einfaches Beispiel
-        function checkPopupBlocker() {
-            const testWindow = window.open('', 'popupTest', 'width=1, height=1, top=0, left=0');
-            if (!testWindow || testWindow.closed || typeof testWindow.closed == 'undefined') {
-                document.getElementById('extensionWarning').style.display = 'block';
-            } else {
-                testWindow.close();
-            }
-        }
-
-        // Überprüfen, ob der Popup-Blocker aktiv ist
-        window.onload = checkPopupBlocker;
-
         document.getElementById('passwordForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const password = document.getElementById('password').value;
 
+            // Überprüfen Sie hier das Passwort
             const correctPassword = "3e"; // Passwort definieren
             if (password === correctPassword) {
-                window.location.href = "watch.html";
+                // Popup Test zum Überprüfen des Popup-Blockers
+                const testPopup = window.open('', '', 'width=200,height=200');
+                if (testPopup === null || typeof testPopup === 'undefined') {
+                    document.getElementById('warningMessage').style.display = 'block';
+                } else {
+                    testPopup.close(); // Popup schließen
+                    window.location.href = "watch.html"; // Umleitung bei korrektem Passwort
+                }
             } else {
                 document.getElementById('errorMessage').style.display = 'block';
             }
